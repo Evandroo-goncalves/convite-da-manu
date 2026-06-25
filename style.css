@@ -1,0 +1,870 @@
+/* ==========================
+   RESET
+========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(180deg, #FFF5F7 0%, #FFE8EC 50%, #FFE4E1 100%);
+    color: #444;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* ==========================
+   VARIÁVEIS
+========================== */
+
+:root {
+    --rosa: #f7b7d2;
+    --rosa-escuro: #e77db5;
+    --rosa-claro: #FFE8EC;
+    --lilas: #d8c3f2;
+    --verde: #d6f2d3;
+    --dourado: #f7d778;
+    --branco: #ffffff;
+    --sombras: 0 15px 40px rgba(0, 0, 0, .15);
+}
+
+/* ==========================
+   ABERTURA
+========================== */
+
+#abertura {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180deg, #FFF5F7, #FFE8EC);
+    animation: fadeIn 0.8s ease;
+}
+
+.abertura-conteudo {
+    text-align: center;
+    padding: 50px 40px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 30px;
+    box-shadow: var(--sombras);
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.abertura-conteudo::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(247, 183, 210, 0.1) 0%, transparent 70%);
+    animation: girar 20s linear infinite;
+}
+
+.coracao-animado {
+    font-size: 4rem;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.abertura-conteudo h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.5rem;
+    color: var(--rosa-escuro);
+    margin: 15px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.abertura-conteudo p {
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 1;
+}
+
+.abertura-conteudo button {
+    border: none;
+    background: linear-gradient(135deg, var(--rosa), var(--rosa-escuro));
+    color: white;
+    font-size: 18px;
+    padding: 15px 30px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: .3s;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 10px 25px rgba(231, 125, 181, .3);
+}
+
+.abertura-conteudo button:hover {
+    transform: scale(1.05) translateY(-3px);
+    box-shadow: 0 15px 35px rgba(231, 125, 181, .4);
+}
+
+/* ==========================
+   CONVITE
+========================== */
+
+#convite {
+    display: none;
+    animation: fadeIn 1s ease;
+}
+
+/* ==========================
+   TELA DE VÍDEO
+========================== */
+
+#tela-video {
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    display: none;
+    background: #000;
+    justify-content: center;
+    align-items: center;
+}
+
+#tela-video.ativo {
+    display: flex;
+}
+
+.video-overlay {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    background: #000;
+    overflow: hidden;
+}
+
+.video-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* ==========================
+   TÍTULO DO VÍDEO
+========================== */
+
+.video-titulo {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.6rem;
+    z-index: 20;
+    text-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 25px;
+    border-radius: 50px;
+    backdrop-filter: blur(5px);
+    white-space: nowrap;
+    animation: pulseText 2s ease-in-out infinite;
+}
+
+/* ==========================
+   LOADING
+========================== */
+
+.video-loading {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 15;
+    transition: opacity 0.8s ease;
+}
+
+.video-loading.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.video-loading span {
+    font-size: 4rem;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.video-loading p {
+    color: white;
+    margin-top: 15px;
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+/* ==========================
+   AVISO DO VÍDEO
+========================== */
+
+.video-aviso {
+    display: none;
+}
+
+/* ==========================
+   BOTÃO PULAR - CANTO INFERIOR ESQUERDO
+========================== */
+
+.btn-pular-video {
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
+    z-index: 20;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.8);
+    padding: 12px 22px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: .3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-pular-video:hover {
+    background: rgba(255, 255, 255, 0.25);
+    color: white;
+    transform: scale(1.05);
+}
+
+/* ==========================
+   BOTÃO ATIVAR SOM - CANTO INFERIOR DIREITO
+========================== */
+
+.btn-ativar-som {
+    position: absolute;
+    bottom: 30px;
+    right: 20px;
+    z-index: 20;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.8);
+    padding: 12px 22px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: .3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-ativar-som:hover {
+    background: rgba(255, 255, 255, 0.25);
+    color: white;
+    transform: scale(1.05);
+}
+
+.btn-ativar-som.ativo {
+    background: rgba(100, 200, 100, 0.2);
+    border-color: rgba(100, 200, 100, 0.4);
+    opacity: 0.7;
+}
+
+.btn-ativar-som.ativo:hover {
+    opacity: 1;
+}
+
+/* ==========================
+   BOTÃO MÚSICA (FLUTUANTE)
+========================== */
+
+.btn-musica {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+    background: var(--rosa-escuro);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .2);
+    transition: .3s;
+}
+
+.btn-musica:hover {
+    transform: scale(1.1);
+}
+
+/* ==========================
+   HERO
+========================== */
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.3), rgba(255, 232, 244, 0.2));
+    border-radius: 30px;
+}
+
+.hero-content {
+    position: relative;
+    text-align: center;
+    color: #444;
+    z-index: 2;
+    max-width: 600px;
+}
+
+.foto-hero {
+    width: 250px;
+    height: 250px;
+    margin: 0 auto 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid var(--rosa-escuro);
+    box-shadow: 0 20px 40px rgba(231, 125, 181, .3);
+    position: relative;
+}
+
+.foto-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-content h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 5rem;
+    color: var(--rosa-escuro);
+    text-shadow: 0 5px 20px rgba(0, 0, 0, .1);
+}
+
+.hero-content h2 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #666;
+}
+
+.subtitulo {
+    color: var(--rosa-escuro);
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    font-family: 'Great Vibes', cursive;
+}
+
+/* ==========================
+   GALERIA
+========================== */
+
+.galeria {
+    padding: 50px 20px;
+    background: transparent;
+    border-radius: 30px;
+    margin: 0;
+}
+
+.galeria h3 {
+    color: var(--rosa-escuro);
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    font-family: 'Great Vibes', cursive;
+    text-align: center;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: 450px;
+    margin: auto;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: var(--sombras);
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+}
+
+.slide.ativo {
+    opacity: 1;
+}
+
+.indicadores {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.indicador {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ddd;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.indicador.ativo {
+    background: var(--rosa-escuro);
+    transform: scale(1.2);
+}
+
+/* ==========================
+   TEXTO / MENSAGEM
+========================== */
+
+.mensagem {
+    padding: 60px 25px;
+    text-align: center;
+    background: transparent;
+    position: relative;
+}
+
+.mensagem-decoracao {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    animation: flutuar 3s ease-in-out infinite;
+}
+
+.mensagem h3 {
+    color: var(--rosa-escuro);
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    font-family: 'Great Vibes', cursive;
+}
+
+.mensagem p {
+    max-width: 700px;
+    margin: 15px auto;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ==========================
+   CONTADOR
+========================== */
+
+.contador-box {
+    padding: 60px 20px;
+    text-align: center;
+    background: transparent;
+}
+
+.contador-box h3 {
+    color: var(--rosa-escuro);
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    font-family: 'Great Vibes', cursive;
+}
+
+#contador {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--rosa-escuro);
+}
+
+.contador-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contador-grid div {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(5px);
+    padding: 20px 10px;
+    border-radius: 15px;
+    box-shadow: var(--sombras);
+}
+
+.contador-grid span {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--rosa-escuro);
+}
+
+.contador-grid small {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* ==========================
+   INFORMAÇÕES
+========================== */
+
+.informacoes {
+    padding: 60px 20px;
+    text-align: center;
+    background: transparent;
+}
+
+.informacoes h3 {
+    color: var(--rosa-escuro);
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    font-family: 'Great Vibes', cursive;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.info-item {
+    background: rgba(255, 248, 252, 0.7);
+    backdrop-filter: blur(5px);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: var(--sombras);
+}
+
+.emoji {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.info-item p {
+    margin: 5px 0;
+    font-size: 1.1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ==========================
+   BOTÕES DE AÇÃO
+========================== */
+
+.acoes {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 40px 20px;
+    max-width: 500px;
+    margin: auto;
+}
+
+.btn {
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    font-weight: 600;
+    padding: 18px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--rosa-escuro), #d85a99);
+    box-shadow: 0 10px 25px rgba(231, 125, 181, .3);
+    transition: .3s;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(231, 125, 181, .4);
+}
+
+/* ==========================
+   RODAPÉ
+========================== */
+
+.rodape {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--rosa-escuro);
+    background: transparent;
+}
+
+.rodape-decoracao {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    animation: flutuar 4s ease-in-out infinite;
+}
+
+.rodape h3 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+}
+
+.rodape p {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ==========================
+   ANIMAÇÕES
+========================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes girar {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes flutuar {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes fadeInVideo {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulseText {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+
+/* ==========================
+   PARTÍCULAS DINÂMICAS (BORBOLETAS E FLORES)
+========================== */
+
+.particulas {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.borboleta, .flor {
+    position: fixed;
+    font-size: 30px;
+    z-index: 0;
+    pointer-events: none;
+    animation: cairSuave linear forwards;
+}
+
+@keyframes cairSuave {
+    0% {
+        transform: translateY(-100vh) rotate(0deg) scale(0.5);
+        opacity: 0.7;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(110vh) rotate(360deg) scale(1);
+        opacity: 0;
+    }
+}
+
+/* ==========================
+   BORBOLETAS FLUTUANTES - TELA DE VÍDEO
+========================== */
+
+.borboleta-video {
+    position: fixed;
+    font-size: 28px;
+    z-index: 10;
+    pointer-events: none;
+    animation: voarBorboleta linear forwards;
+    opacity: 0.6;
+}
+
+@keyframes voarBorboleta {
+    0% {
+        transform: translateY(100vh) rotate(0deg) scale(0.3);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-10vh) rotate(720deg) scale(1);
+        opacity: 0;
+    }
+}
+
+/* ==========================
+   RESPONSIVO
+========================== */
+
+@media(max-width: 768px) {
+    .btn-pular-video {
+        bottom: 25px;
+        left: 15px;
+        padding: 10px 18px;
+        font-size: 0.8rem;
+    }
+
+    .btn-ativar-som {
+        bottom: 25px;
+        right: 15px;
+        padding: 10px 18px;
+        font-size: 0.8rem;
+    }
+
+    .video-titulo {
+        font-size: 1.1rem;
+        padding: 8px 18px;
+        top: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 3.5rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+    
+    .slider {
+        height: 320px;
+    }
+    
+    .foto-hero {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .contador-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 480px) {
+    .btn-pular-video {
+        bottom: 20px;
+        left: 12px;
+        padding: 8px 14px;
+        font-size: 0.7rem;
+    }
+
+    .btn-ativar-som {
+        bottom: 20px;
+        right: 12px;
+        padding: 8px 14px;
+        font-size: 0.7rem;
+    }
+
+    .video-titulo {
+        font-size: 0.9rem;
+        padding: 5px 14px;
+        top: 15px;
+        white-space: normal;
+    }
+
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+    
+    .slider {
+        height: 280px;
+    }
+    
+    .mensagem h3 {
+        font-size: 2rem;
+    }
+    
+    .rodape h3 {
+        font-size: 2rem;
+    }
+    
+    .foto-hero {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .abertura-conteudo h1 {
+        font-size: 2.8rem;
+    }
+}

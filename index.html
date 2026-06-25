@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎀 Aniversário da Manuela - 1 Ano</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- FONTES - ADICIONE DANCING SCRIPT -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Música -->
+    <audio id="musica" loop>
+        <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Tela de abertura -->
+    <section id="abertura">
+        <div class="abertura-conteudo">
+            <div class="coracao-animado"></div>
+            <h1> Manuela </h1>
+            <p> Nossa princesa está completando <p> <p> 1 aninho!</p>
+            <p style="font-size: 0.9rem; color: #888;">Clique no botão para abrir o convite</p>
+            <button onclick="abrirConvite()">
+                Abrir Convite ✨
+            </button>
+        </div>
+    </section>
+
+    <!-- TELA DE VÍDEO - BOTÕES EM CANTOS OPOSTOS -->
+    <section id="tela-video">
+        <div class="video-overlay">
+            <div class="video-container">
+                
+                
+                <div class="video-wrapper">
+                    <iframe 
+                        id="video-convite"
+                        src="https://player.vimeo.com/video/1204239716?autoplay=1&muted=1&loop=1&controls=0&badge=0&autopause=0&player_id=0&app_id=58479&api=1" 
+                        frameborder="0" 
+                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
+                        allowfullscreen
+                        title="WhatsApp Video 2026-06-24 at 11.24.28">
+                    </iframe>
+                </div>
+                
+               
+                
+                <!-- BOTÃO PULAR - CANTO INFERIOR ESQUERDO -->
+                <button class="btn-pular-video" onclick="pularVideo()">⏭️ Pular</button>
+                
+                <!-- BOTÃO ATIVAR SOM - CANTO INFERIOR DIREITO -->
+                <button class="btn-ativar-som" id="btn-ativar-som" onclick="ativarSomVideo()">
+                    🔊 Ativar Som
+                </button>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Convite -->
+    <main id="convite">
+        <div class="particulas"></div>
+
+       
+
+        <section class="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <div class="foto-hero">
+                    <img src="https://i.postimg.cc/p944jxyv/Whats-App-Image-2026-06-24-at-11-24-29.jpg" alt="Manuela">
+                </div>
+                <h1>Manuela</h1>
+                <h2>1 Aninho</h2>
+                <p class="subtitulo">23 de Agosto de 2026</p>
+            </div>
+        </section>
+
+        <section class="galeria">
+            <h3 style="text-align: center; color: var(--rosa-escuro); margin-bottom: 20px;">
+                 Momentos Especiais
+            </h3>
+            <div class="slider">
+                <img class="slide ativo" src="https://i.postimg.cc/p944jxyv/Whats-App-Image-2026-06-24-at-11-24-29.jpg" alt="Foto 1">
+                <img class="slide" src="https://i.postimg.cc/p944jxyv/Whats-App-Image-2026-06-24-at-11-24-29.jpg" alt="Foto 2">
+                <img class="slide" src="https://i.postimg.cc/p944jxyv/Whats-App-Image-2026-06-24-at-11-24-29.jpg" alt="Foto 3">
+                <img class="slide" src="https://i.postimg.cc/p944jxyv/Whats-App-Image-2026-06-24-at-11-24-29.jpg" alt="Foto 4">
+            </div>
+            <div class="indicadores">
+                <span class="indicador ativo" onclick="irParaSlide(0)"></span>
+                <span class="indicador" onclick="irParaSlide(1)"></span>
+                <span class="indicador" onclick="irParaSlide(2)"></span>
+                <span class="indicador" onclick="irParaSlide(3)"></span>
+            </div>
+        </section>
+
+        <section class="mensagem">
+            <div class="mensagem-decoracao">🌸</div>
+            <h3>Uma tarde encantada</h3>
+            <p>
+                Em um jardim cheio de flores e borboletas,
+                uma princesa muito especial está completando
+                seu primeiro aninho.
+            </p>
+            <p>
+                Venha celebrar conosco este momento mágico
+                cheio de amor, alegria e muitas bênçãos! 🎀
+            </p>
+        </section>
+
+        <section class="contador-box">
+            <h3>⏰ Faltam</h3>
+            <div id="contador"></div>
+        </section>
+
+        <section class="informacoes">
+            <h3>🎈 O Grande Dia</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="emoji">📅</span>
+                    <p>23 de Agosto de 2026</p>
+                </div>
+                <div class="info-item">
+                    <span class="emoji">🕒</span>
+                    <p>14:00</p>
+                </div>
+                <div class="info-item">
+                    <span class="emoji">📍</span>
+                    <p>Minha Casa</p>
+                    <p style="font-size: 0.9rem;">Rua Luiz Ayres Martins, 93</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="acoes">
+            <a class="btn" href="https://maps.google.com" target="_blank">📍 Como Chegar</a>
+            <a class="btn" href="https://wa.me/5515998178811?text=Olá! Confirmo minha presença." target="_blank">💬 Confirmar Presença</a>
+            <a class="btn" href="presentes.html" target="_blank">🎁 Lista de Presentes</a>
+        </section>
+
+        <section class="rodape">
+            <div class="rodape-decoracao">🦋</div>
+            <h3>Esperamos você neste dia especial</h3>
+            <p style="font-family: 'Poppins', sans-serif; font-size: 1rem; margin-top: 15px; color: #888;">
+                Sua presença é o melhor presente!
+            </p>
+        </section>
+
+    </main>
+
+    <script src="https://player.vimeo.com/api/player.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

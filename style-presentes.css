@@ -1,0 +1,248 @@
+/* ==========================
+   RESET
+========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(180deg, #fff8fc, #fff0f5);
+    color: #444;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* ==========================
+   BOTÃO VOLTAR
+========================== */
+
+.btn-voltar {
+    display: inline-block;
+    text-decoration: none;
+    color: #e77db5;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: 2px solid #e77db5;
+    transition: .3s;
+    margin-bottom: 30px;
+    background: white;
+}
+
+.btn-voltar:hover {
+    background: #e77db5;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* ==========================
+   CONTAINER
+========================== */
+
+.container-presentes {
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 40px;
+    padding: 40px 35px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================
+   CABEÇALHO
+========================== */
+
+.cabecalho {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.cabecalho .decoracao {
+    font-size: 3rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.cabecalho h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.5rem;
+    color: #e77db5;
+    margin: 10px 0;
+}
+
+.cabecalho .subtitulo {
+    font-size: 1.2rem;
+    color: #888;
+}
+
+.cabecalho .mensagem-presentes {
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    background: #fff8fc;
+    padding: 15px;
+    border-radius: 20px;
+}
+
+/* ==========================
+   CATEGORIAS
+========================== */
+
+.categoria {
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 2px dashed #f0e0e8;
+}
+
+.categoria:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.categoria h2 {
+    font-size: 1.8rem;
+    color: #e77db5;
+    margin-bottom: 5px;
+}
+
+.categoria .info-tamanho {
+    font-size: 0.95rem;
+    color: #888;
+    margin-bottom: 15px;
+}
+
+.categoria .info-tamanho strong {
+    color: #e77db5;
+    font-weight: 600;
+}
+
+/* ==========================
+   LISTA DE ITENS (SIMPLE)
+========================== */
+
+.lista-itens {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-itens li {
+    padding: 10px 15px;
+    border-bottom: 1px solid #f5e8ee;
+    font-size: 1rem;
+    color: #444;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: .2s;
+}
+
+.lista-itens li:last-child {
+    border-bottom: none;
+}
+
+.lista-itens li:hover {
+    background: #fff8fc;
+    border-radius: 10px;
+    padding-left: 20px;
+}
+
+.lista-itens .tamanho {
+    font-size: 0.75rem;
+    background: #f7b7d2;
+    color: white;
+    padding: 2px 12px;
+    border-radius: 20px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* ==========================
+   RODAPÉ
+========================== */
+
+.rodape-presentes {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 2px dashed #f0e0e8;
+}
+
+.rodape-presentes .decoracao {
+    font-size: 2.5rem;
+    animation: flutuar 3s ease-in-out infinite;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.rodape-presentes h3 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    color: #e77db5;
+}
+
+.rodape-presentes p {
+    color: #888;
+    margin-top: 5px;
+}
+
+/* ==========================
+   ANIMAÇÕES
+========================== */
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes flutuar {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* ==========================
+   RESPONSIVO
+========================== */
+
+@media(max-width: 600px) {
+    .container-presentes {
+        padding: 25px 18px;
+        border-radius: 25px;
+    }
+
+    .cabecalho h1 {
+        font-size: 2.8rem;
+    }
+
+    .categoria h2 {
+        font-size: 1.5rem;
+    }
+
+    .lista-itens li {
+        font-size: 0.9rem;
+        padding: 8px 10px;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .lista-itens .tamanho {
+        font-size: 0.7rem;
+        padding: 2px 10px;
+    }
+
+    .rodape-presentes h3 {
+        font-size: 1.5rem;
+    }
+}
