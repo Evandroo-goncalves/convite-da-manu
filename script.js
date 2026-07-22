@@ -20,7 +20,7 @@ function abrirConvite() {
         }
     }, 3000);
 
-    const duracaoVideo = 30000; // 30 segundos - ALTERE AQUI
+    const duracaoVideo = 48000; // 30 segundos - ALTERE AQUI
     
     setTimeout(() => {
         if (document.getElementById("convite").style.display !== "block") {
