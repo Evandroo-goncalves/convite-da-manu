@@ -271,38 +271,80 @@ body {
 }
 
 /* ==========================
-   BOTÃO ATIVAR SOM - CANTO INFERIOR DIREITO
-   VERSÃO ROSA 💗
+   BOTÃO PULAR - CANTO INFERIOR ESQUERDO
+   VERSÃO ROSA 💗 - MAIOR
 ========================== */
 
-.btn-ativar-som {
+.btn-pular-video {
     position: absolute;
-    bottom: 30px;
-    right: 20px;
+    bottom: 35px;
+    left: 25px;
     z-index: 20;
     background: linear-gradient(135deg, #f8a5c2, #f78fb3);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 2px solid rgba(255, 255, 255, 0.3);
     color: #ffffff;
-    padding: 12px 22px;
+    padding: 16px 30px;
     border-radius: 50px;
-    font-size: 0.9rem;
-    font-weight: 600;
+    font-size: 1.1rem;
+    font-weight: 700;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(247, 143, 179, 0.4);
+    box-shadow: 0 4px 25px rgba(247, 143, 179, 0.5);
     letter-spacing: 0.5px;
     font-family: 'Poppins', sans-serif;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
+    min-width: 120px;
+}
+
+.btn-pular-video:hover {
+    background: linear-gradient(135deg, #fd79a8, #f8a5c2);
+    transform: scale(1.08);
+    box-shadow: 0 6px 35px rgba(247, 143, 179, 0.7);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.btn-pular-video:active {
+    transform: scale(0.95);
+}
+
+/* ==========================
+   BOTÃO ATIVAR SOM - CANTO INFERIOR DIREITO
+   VERSÃO ROSA 💗 - MAIOR
+========================== */
+
+.btn-ativar-som {
+    position: absolute;
+    bottom: 35px;
+    right: 25px;
+    z-index: 20;
+    background: linear-gradient(135deg, #f8a5c2, #f78fb3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    padding: 16px 30px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 25px rgba(247, 143, 179, 0.5);
+    letter-spacing: 0.5px;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    min-width: 120px;
 }
 
 .btn-ativar-som:hover {
     background: linear-gradient(135deg, #fd79a8, #f8a5c2);
     transform: scale(1.08);
-    box-shadow: 0 6px 30px rgba(247, 143, 179, 0.6);
+    box-shadow: 0 6px 35px rgba(247, 143, 179, 0.7);
     border-color: rgba(255, 255, 255, 0.6);
 }
 
@@ -313,79 +355,111 @@ body {
 .btn-ativar-som.ativo {
     background: linear-gradient(135deg, #a29bfe, #6c5ce7);
     border-color: rgba(162, 155, 254, 0.5);
-    box-shadow: 0 4px 20px rgba(108, 92, 231, 0.4);
+    box-shadow: 0 4px 25px rgba(108, 92, 231, 0.5);
     opacity: 0.85;
 }
 
 .btn-ativar-som.ativo:hover {
     opacity: 1;
     transform: scale(1.08);
-    box-shadow: 0 6px 30px rgba(108, 92, 231, 0.6);
+    box-shadow: 0 6px 35px rgba(108, 92, 231, 0.7);
 }
 
 /* ==========================
-   RESPONSIVO - CELULAR (ATÉ 768px)
+   RESPONSIVO - TABLET
 ========================== */
 
 @media (max-width: 768px) {
     .btn-pular-video {
         bottom: 25px;
         left: 15px;
-        padding: 10px 16px;
-        font-size: 0.75rem;
-        border-radius: 40px;
-        box-shadow: 0 4px 15px rgba(247, 143, 179, 0.3);
+        padding: 14px 24px;
+        font-size: 0.95rem;
+        border-radius: 45px;
+        min-width: 100px;
+        box-shadow: 0 4px 20px rgba(247, 143, 179, 0.4);
     }
     
     .btn-pular-video:hover {
-        transform: scale(1.04);
+        transform: scale(1.05);
     }
 
     .btn-ativar-som {
         bottom: 25px;
         right: 15px;
-        padding: 10px 16px;
-        font-size: 0.75rem;
-        border-radius: 40px;
-        box-shadow: 0 4px 15px rgba(247, 143, 179, 0.3);
+        padding: 14px 24px;
+        font-size: 0.95rem;
+        border-radius: 45px;
+        min-width: 100px;
+        box-shadow: 0 4px 20px rgba(247, 143, 179, 0.4);
     }
     
     .btn-ativar-som:hover {
-        transform: scale(1.04);
+        transform: scale(1.05);
     }
 }
 
 /* ==========================
-   RESPONSIVO - CELULAR PEQUENO (ATÉ 480px)
+   RESPONSIVO - CELULAR (ATÉ 550px)
 ========================== */
 
-@media (max-width: 480px) {
+@media (max-width: 550px) {
     .btn-pular-video {
-        bottom: 18px;
-        left: 10px;
-        padding: 8px 12px;
-        font-size: 0.65rem;
-        border-radius: 30px;
-        border-width: 1.5px;
-        box-shadow: 0 3px 12px rgba(247, 143, 179, 0.25);
+        bottom: 20px;
+        left: 12px;
+        padding: 12px 18px;
+        font-size: 0.8rem;
+        border-radius: 40px;
+        min-width: 80px;
+        border-width: 1.8px;
+        box-shadow: 0 4px 15px rgba(247, 143, 179, 0.35);
     }
     
     .btn-pular-video:active {
-        transform: scale(0.92);
+        transform: scale(0.93);
     }
 
     .btn-ativar-som {
-        bottom: 18px;
-        right: 10px;
-        padding: 8px 12px;
-        font-size: 0.65rem;
-        border-radius: 30px;
-        border-width: 1.5px;
-        box-shadow: 0 3px 12px rgba(247, 143, 179, 0.25);
+        bottom: 20px;
+        right: 12px;
+        padding: 12px 18px;
+        font-size: 0.8rem;
+        border-radius: 40px;
+        min-width: 80px;
+        border-width: 1.8px;
+        box-shadow: 0 4px 15px rgba(247, 143, 179, 0.35);
     }
     
     .btn-ativar-som:active {
-        transform: scale(0.92);
+        transform: scale(0.93);
+    }
+}
+
+/* ==========================
+   RESPONSIVO - CELULAR PEQUENO (ATÉ 400px)
+========================== */
+
+@media (max-width: 400px) {
+    .btn-pular-video {
+        bottom: 16px;
+        left: 10px;
+        padding: 10px 14px;
+        font-size: 0.7rem;
+        border-radius: 35px;
+        min-width: 65px;
+        border-width: 1.5px;
+        box-shadow: 0 3px 12px rgba(247, 143, 179, 0.25);
+    }
+
+    .btn-ativar-som {
+        bottom: 16px;
+        right: 10px;
+        padding: 10px 14px;
+        font-size: 0.7rem;
+        border-radius: 35px;
+        min-width: 65px;
+        border-width: 1.5px;
+        box-shadow: 0 3px 12px rgba(247, 143, 179, 0.25);
     }
 }
 
