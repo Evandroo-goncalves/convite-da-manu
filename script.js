@@ -92,9 +92,30 @@ function mostrarConvite() {
     convite.style.display = "block";
     convite.style.opacity = "1";
 
-    musica.play().catch(() => {
-        console.log("A reprodução automática foi bloqueada pelo navegador.");
-    });
+    // ===== REPRODUÇÃO AUTOMÁTICA CORRIGIDA =====
+    const playMusic = function() {
+        musica.play().then(() => {
+            console.log("🎵 Música reproduzindo!");
+            const btn = document.querySelector(".btn-musica");
+            if (btn) btn.textContent = "🔊";
+        }).catch((err) => {
+            console.log("⚠️ Reprodução automática bloqueada. Aguardando interação.", err);
+            // Tenta novamente quando o usuário clicar em qualquer lugar
+            document.addEventListener('click', function tocarNaInteracao() {
+                musica.play().then(() => {
+                    console.log("🎵 Música ativada após clique do usuário!");
+                    const btn = document.querySelector(".btn-musica");
+                    if (btn) btn.textContent = "🔊";
+                }).catch((e) => {
+                    console.log("❌ Erro ao reproduzir:", e);
+                });
+                document.removeEventListener('click', tocarNaInteracao);
+            }, { once: true });
+        });
+    };
+
+    // Pequeno atraso para garantir que o DOM está pronto
+    setTimeout(playMusic, 100);
 
     iniciarElementos();
 }
@@ -152,11 +173,16 @@ function alternarMusica() {
     const btn = document.querySelector(".btn-musica");
 
     if (musica.paused) {
-        musica.play();
-        btn.textContent = "🔊";
+        musica.play().then(() => {
+            btn.textContent = "🔊";
+            console.log("🔊 Música ligada manualmente");
+        }).catch((err) => {
+            console.log("❌ Erro ao ligar música:", err);
+        });
     } else {
         musica.pause();
         btn.textContent = "🔇";
+        console.log("🔇 Música pausada manualmente");
     }
 }
 
