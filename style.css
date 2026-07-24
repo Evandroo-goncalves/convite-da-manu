@@ -235,41 +235,6 @@ body {
     display: none;
 }
 
-.btn-pular-video {
-    position: absolute;
-    bottom: 30px;
-    left: 20px;
-    z-index: 20;
-    background: linear-gradient(135deg, #f8a5c2, #f78fb3);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    color: #ffffff;
-    padding: 12px 22px;
-    border-radius: 50px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(247, 143, 179, 0.4);
-    letter-spacing: 0.5px;
-    font-family: 'Poppins', sans-serif;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    touch-action: manipulation;
-    -webkit-tap-highlight-color: transparent;
-}
-
-.btn-pular-video:hover {
-    background: linear-gradient(135deg, #fd79a8, #f8a5c2);
-    transform: scale(1.08);
-    box-shadow: 0 6px 30px rgba(247, 143, 179, 0.6);
-    border-color: rgba(255, 255, 255, 0.6);
-}
-
-.btn-pular-video:active {
-    transform: scale(0.95);
-}
-
 /* ==========================
    BOTÃO PULAR - CANTO INFERIOR ESQUERDO
    VERSÃO ROSA 💗 - MAIOR
@@ -397,6 +362,33 @@ body {
     .btn-ativar-som:hover {
         transform: scale(1.05);
     }
+
+    .video-titulo {
+        font-size: 1.1rem;
+        padding: 8px 18px;
+        top: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 3.5rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+    
+    .slider {
+        height: 320px;
+    }
+    
+    .foto-hero {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .contador-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 /* ==========================
@@ -436,6 +428,58 @@ body {
 }
 
 /* ==========================
+   RESPONSIVO - CELULAR PEQUENO (ATÉ 480px)
+========================== */
+
+@media(max-width: 480px) {
+    .btn-pular-video {
+        bottom: 20px;
+        left: 12px;
+        padding: 8px 14px;
+        font-size: 0.7rem;
+    }
+
+    .btn-ativar-som {
+        bottom: 20px;
+        right: 12px;
+        padding: 8px 14px;
+        font-size: 0.7rem;
+    }
+
+    .video-titulo {
+        font-size: 0.9rem;
+        padding: 5px 14px;
+        top: 15px;
+        white-space: normal;
+    }
+
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+    
+    .slider {
+        height: 280px;
+    }
+    
+    .mensagem h3 {
+        font-size: 2rem;
+    }
+    
+    .rodape h3 {
+        font-size: 2rem;
+    }
+    
+    .foto-hero {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .abertura-conteudo h1 {
+        font-size: 2.8rem;
+    }
+}
+
+/* ==========================
    RESPONSIVO - CELULAR PEQUENO (ATÉ 400px)
 ========================== */
 
@@ -462,7 +506,6 @@ body {
         box-shadow: 0 3px 12px rgba(247, 143, 179, 0.25);
     }
 }
-
 
 /* ==========================
    HERO
@@ -678,6 +721,145 @@ body {
 }
 
 /* ==========================
+   PAINEL DE AVISO - PISCINA
+========================== */
+
+.painel-aviso {
+    padding: 30px 20px;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+.aviso-container {
+    background: linear-gradient(135deg, #fff5f5, #ffe8e8);
+    border-radius: 25px;
+    padding: 30px 25px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(255, 100, 100, 0.15);
+    border-left: 5px solid #ff6b6b;
+    position: relative;
+    overflow: hidden;
+}
+
+.aviso-container::before {
+    content: '⚠️';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    font-size: 5rem;
+    opacity: 0.08;
+    transform: rotate(15deg);
+}
+
+.aviso-icone {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    animation: flutuar 2s ease-in-out infinite;
+}
+
+.aviso-container h3 {
+    color: #c0392b;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.aviso-container p {
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 18px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.aviso-dicas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0 20px;
+}
+
+.aviso-dicas span {
+    background: white;
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #2d3436;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    border: 1px solid #ffd3d3;
+}
+
+.aviso-destaque {
+    background: #ff6b6b;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 15px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 0.95rem;
+}
+
+.aviso-destaque span {
+    font-size: 1.5rem;
+}
+
+.aviso-destaque p {
+    color: white;
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Responsivo do aviso */
+@media (max-width: 550px) {
+    .aviso-container {
+        padding: 20px 16px;
+        border-radius: 20px;
+    }
+    
+    .aviso-container h3 {
+        font-size: 1.1rem;
+    }
+    
+    .aviso-container p {
+        font-size: 0.9rem;
+    }
+    
+    .aviso-dicas span {
+        font-size: 0.8rem;
+        padding: 6px 14px;
+    }
+    
+    .aviso-destaque {
+        font-size: 0.8rem;
+        padding: 10px 14px;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+    
+    .aviso-icone {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .aviso-dicas {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .aviso-dicas span {
+        width: 100%;
+        max-width: 200px;
+    }
+}
+
+/* ==========================
    INFORMAÇÕES
 ========================== */
 
@@ -752,7 +934,110 @@ body {
     transform: translateY(-3px);
     box-shadow: 0 15px 35px rgba(231, 125, 181, .4);
 }
+/* ==========================
+   CONTATOS PARA CONFIRMAÇÃO
+========================== */
 
+.contatos-grupo {
+    background: rgba(255, 248, 252, 0.7);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 25px;
+    padding: 25px 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+    margin-bottom: 10px;
+}
+
+.contatos-grupo h3 {
+    color: var(--rosa-escuro);
+    margin-bottom: 15px;
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.contatos-botoes {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* ===== BOTÃO DA MAMÃE - ROSA CLARO ===== */
+.btn-contato {
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    font-weight: 600;
+    padding: 16px 20px;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1rem;
+    background: linear-gradient(135deg, #f8a5c2, #f78fb3);
+    box-shadow: 0 8px 20px rgba(247, 143, 179, 0.3);
+}
+
+.btn-contato:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(247, 143, 179, 0.4);
+}
+
+/* ===== BOTÃO DO PAI - AZUL CLARO ===== */
+.btn-contato.btn-pai {
+    background: linear-gradient(135deg, #74b9ff, #0984e3);
+    box-shadow: 0 8px 20px rgba(9, 132, 227, 0.3);
+}
+
+.btn-contato.btn-pai:hover {
+    box-shadow: 0 12px 30px rgba(9, 132, 227, 0.4);
+}
+
+.btn-contato:active {
+    transform: scale(0.97);
+}
+
+.contatos-grupo p {
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Responsivo dos contatos */
+@media (max-width: 550px) {
+    .contatos-grupo {
+        padding: 18px 14px;
+        border-radius: 20px;
+    }
+    
+    .contatos-grupo h3 {
+        font-size: 1.4rem;
+    }
+    
+    .btn-contato {
+        padding: 14px 16px;
+        font-size: 0.9rem;
+        border-radius: 14px;
+    }
+    
+    .contatos-grupo p {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .btn-contato {
+        padding: 12px 14px;
+        font-size: 0.8rem;
+        border-radius: 12px;
+    }
+}
 /* ==========================
    RODAPÉ
 ========================== */
@@ -905,100 +1190,5 @@ body {
     100% {
         transform: translateY(-10vh) rotate(720deg) scale(1);
         opacity: 0;
-    }
-}
-
-/* ==========================
-   RESPONSIVO
-========================== */
-
-@media(max-width: 768px) {
-    .btn-pular-video {
-        bottom: 25px;
-        left: 15px;
-        padding: 10px 18px;
-        font-size: 0.8rem;
-    }
-
-    .btn-ativar-som {
-        bottom: 25px;
-        right: 15px;
-        padding: 10px 18px;
-        font-size: 0.8rem;
-    }
-
-    .video-titulo {
-        font-size: 1.1rem;
-        padding: 8px 18px;
-        top: 20px;
-    }
-
-    .hero-content h1 {
-        font-size: 3.5rem;
-    }
-    
-    .hero-content h2 {
-        font-size: 2rem;
-    }
-    
-    .slider {
-        height: 320px;
-    }
-    
-    .foto-hero {
-        width: 180px;
-        height: 180px;
-    }
-    
-    .contador-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media(max-width: 480px) {
-    .btn-pular-video {
-        bottom: 20px;
-        left: 12px;
-        padding: 8px 14px;
-        font-size: 0.7rem;
-    }
-
-    .btn-ativar-som {
-        bottom: 20px;
-        right: 12px;
-        padding: 8px 14px;
-        font-size: 0.7rem;
-    }
-
-    .video-titulo {
-        font-size: 0.9rem;
-        padding: 5px 14px;
-        top: 15px;
-        white-space: normal;
-    }
-
-    .hero-content h1 {
-        font-size: 2.8rem;
-    }
-    
-    .slider {
-        height: 280px;
-    }
-    
-    .mensagem h3 {
-        font-size: 2rem;
-    }
-    
-    .rodape h3 {
-        font-size: 2rem;
-    }
-    
-    .foto-hero {
-        width: 150px;
-        height: 150px;
-    }
-    
-    .abertura-conteudo h1 {
-        font-size: 2.8rem;
     }
 }
